@@ -1,7 +1,6 @@
-(ns play.day2)
-
-(require ['clojure.string :as 'str])
-(require ['clojure.math.combinatorics :as 'combo])
+(ns play.day2
+  (:require [clojure.string :as str])
+  (:require [clojure.math.combinatorics :as combo]))
 
 (defn get-lines [filename]
   (str/split-lines (slurp filename)))
@@ -26,7 +25,8 @@
 
 (defn get-div-eq [line]
   (filter #(interesting-eq? (first %) (last %)) (combo/combinations line 2)))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;^^^^^^^^^^^^^^^^^ how do I break in the definition of interesting-eq? apply?
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;^^^^^^^^^^^^^^^^^
+;;;;;  how do I break in the definition of interesting-eq? apply?
 
 (defn get-for-second-star [line]
   (let [tuple (first (get-div-eq (prepare line)))]
